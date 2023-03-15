@@ -1,0 +1,121 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Pricing example · Bootstrap v5.2</title>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+
+                <span class="fs-4">
+                    <div class="logo-card-navbar">
+                    <img class="logo-navbar" src="" th:src="@{/images/logo.png}" alt="" />
+                    </div>
+                </span>
+            </a>
+
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a class="me-3 py-2 text-dark text-decoration-none" href="/flashcash/">Home</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="/flashcash/transfer">Transfer</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="/flashcash/profile">Profile</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="/flashcash/contact">Contact</a>
+                <a class="py-2 text-dark text-decoration-none" href="/flashcash/signin">Sign out</a>
+            </nav>
+        </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">My transfers</h1>
+
+        </div>
+    </header>
+
+    <main>
+
+
+        <tbody>
+        <div th:each="transfer :${transfers}">
+            <div class="row row-cols-1 row-cols-md-9 mb-9 text-center">
+                <div class="col">
+                    <div class="card-list mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 th:text="${transfer.to.email}" class="my-0 fw-normal"></h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 th:text="${transfer.date}" class="card-title pricing-card-title"><small
+                                    class="text-muted fw-light"></small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                Date :
+                                <li th:text="${transfer.date}" ></li>
+                                Amount transfered :
+                                <li th:text="${transfer.amountBeforeFee}"></li>
+                                Fee
+                                <li th:text="${transfer.amountAfterFee}"></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <tr th:each="transfer :${transfers}">
+
+
+        </tbody>
+
+
+    </main>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <div class="logo-card-navbar">
+                    <img class="logo-navbar" src="" th:src="@{/images/logo.png}" alt="" />
+                </div>
+
+            </div>
+            <div class="col-6 col-md">
+                <h5>Cash transfer</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">FAQ</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Why using Flash Cash ?</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Money change</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Taxes</a>
+                    </li>
+
+            </div>
+            <div class="col-6 col-md">
+                <h5>Need help ?</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Live chat</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Contact us</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Email us</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Call us</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+</body>
+</html>
